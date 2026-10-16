@@ -10,8 +10,8 @@ object SudokuBaseForm: TSudokuBaseForm
   Anchors = []
   BorderStyle = bsSingle
   Caption = 'Sudoku'
-  ClientHeight = 626
-  ClientWidth = 523
+  ClientHeight = 716
+  ClientWidth = 615
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -27,8 +27,8 @@ object SudokuBaseForm: TSudokuBaseForm
   object Shape1: TShape
     Left = 8
     Top = 8
-    Width = 509
-    Height = 509
+    Width = 599
+    Height = 599
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
@@ -39,9 +39,9 @@ object SudokuBaseForm: TSudokuBaseForm
   end
   object ManualPlayButton: TButton
     Left = 9
-    Top = 542
+    Top = 628
     Width = 98
-    Height = 31
+    Height = 30
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -58,9 +58,9 @@ object SudokuBaseForm: TSudokuBaseForm
   end
   object SolveButton: TButton
     Left = 122
-    Top = 542
+    Top = 628
     Width = 94
-    Height = 31
+    Height = 30
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -76,10 +76,10 @@ object SudokuBaseForm: TSudokuBaseForm
     OnClick = SolveButtonClick
   end
   object LoadButton: TButton
-    Left = 305
-    Top = 542
+    Left = 401
+    Top = 628
     Width = 95
-    Height = 31
+    Height = 30
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -95,10 +95,10 @@ object SudokuBaseForm: TSudokuBaseForm
     OnClick = LoadButtonClick
   end
   object SaveButton: TButton
-    Left = 417
-    Top = 542
+    Left = 513
+    Top = 628
     Width = 95
-    Height = 31
+    Height = 30
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -115,9 +115,9 @@ object SudokuBaseForm: TSudokuBaseForm
   end
   object ClearButton: TButton
     Left = 9
-    Top = 586
+    Top = 672
     Width = 98
-    Height = 31
+    Height = 30
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -133,10 +133,10 @@ object SudokuBaseForm: TSudokuBaseForm
     OnClick = ClearButtonClick
   end
   object SwitchButton: TButton
-    Left = 305
-    Top = 586
+    Left = 401
+    Top = 672
     Width = 209
-    Height = 31
+    Height = 30
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -153,9 +153,9 @@ object SudokuBaseForm: TSudokuBaseForm
   end
   object OptionsButton: TButton
     Left = 122
-    Top = 586
+    Top = 672
     Width = 94
-    Height = 31
+    Height = 30
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4

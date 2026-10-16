@@ -1,8 +1,8 @@
 object Cell: TCell
   Left = 0
   Top = 0
-  Width = 55
-  Height = 55
+  Width = 65
+  Height = 65
   Margins.Left = 0
   Margins.Top = 0
   Margins.Right = 0
@@ -17,11 +17,11 @@ object Cell: TCell
   StyleElements = []
   OnClick = FrameClick
   DesignSize = (
-    55
-    55)
+    65
+    65)
   object Label1: TLabel
-    Left = 3
-    Top = 0
+    Left = 4
+    Top = 2
     Width = 10
     Height = 18
     Anchors = []
@@ -35,10 +35,12 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickSmallNumber
     OnDblClick = DblClickSmallNumber
+    ExplicitLeft = 3
+    ExplicitTop = 0
   end
   object Label2: TLabel
-    Left = 21
-    Top = 0
+    Left = 26
+    Top = 2
     Width = 10
     Height = 18
     Anchors = []
@@ -52,10 +54,12 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickSmallNumber
     OnDblClick = DblClickSmallNumber
+    ExplicitLeft = 21
+    ExplicitTop = 0
   end
   object Label3: TLabel
-    Left = 39
-    Top = 0
+    Left = 47
+    Top = 2
     Width = 10
     Height = 18
     Anchors = []
@@ -69,10 +73,12 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickSmallNumber
     OnDblClick = DblClickSmallNumber
+    ExplicitLeft = 39
+    ExplicitTop = 0
   end
   object Label4: TLabel
-    Left = 2
-    Top = 17
+    Left = 3
+    Top = 22
     Width = 10
     Height = 18
     Anchors = []
@@ -86,10 +92,12 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickSmallNumber
     OnDblClick = DblClickSmallNumber
+    ExplicitLeft = 2
+    ExplicitTop = 17
   end
   object Label5: TLabel
-    Left = 20
-    Top = 17
+    Left = 25
+    Top = 22
     Width = 10
     Height = 18
     Anchors = []
@@ -103,10 +111,12 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickSmallNumber
     OnDblClick = DblClickSmallNumber
+    ExplicitLeft = 20
+    ExplicitTop = 17
   end
   object Label6: TLabel
-    Left = 38
-    Top = 17
+    Left = 46
+    Top = 22
     Width = 10
     Height = 18
     Anchors = []
@@ -120,10 +130,12 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickSmallNumber
     OnDblClick = DblClickSmallNumber
+    ExplicitLeft = 38
+    ExplicitTop = 17
   end
   object Label7: TLabel
-    Left = 2
-    Top = 33
+    Left = 3
+    Top = 41
     Width = 10
     Height = 18
     Anchors = []
@@ -137,11 +149,12 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickSmallNumber
     OnDblClick = DblClickSmallNumber
+    ExplicitLeft = 2
     ExplicitTop = 34
   end
   object Label8: TLabel
-    Left = 20
-    Top = 33
+    Left = 25
+    Top = 41
     Width = 10
     Height = 18
     Anchors = []
@@ -155,11 +168,12 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickSmallNumber
     OnDblClick = DblClickSmallNumber
+    ExplicitLeft = 20
     ExplicitTop = 34
   end
   object Label9: TLabel
-    Left = 38
-    Top = 33
+    Left = 46
+    Top = 41
     Width = 10
     Height = 18
     Anchors = []
@@ -173,13 +187,14 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickSmallNumber
     OnDblClick = DblClickSmallNumber
+    ExplicitLeft = 38
     ExplicitTop = 34
   end
   object Result: TLabel
     Left = 6
     Top = 2
-    Width = 42
-    Height = 44
+    Width = 52
+    Height = 54
     Alignment = taCenter
     Anchors = [akLeft, akTop, akRight, akBottom]
     AutoSize = False
@@ -192,6 +207,7 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickResult
     OnDblClick = DblClickResult
+    ExplicitWidth = 42
     ExplicitHeight = 45
   end
 end

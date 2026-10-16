@@ -52,8 +52,8 @@ type
       function ResultText: string;
       function IsPossible(digit: integer): boolean;
    const
-		positions: array[1..9] of integer = (10, 66, 122, 179, 235, 291, 348, 404, 460);
-      yPositions6x6: array[1..6] of integer = (10, 66, 123, 179, 236, 292);
+		positions: array[1..9] of integer = (10, 76, 142, 209, 275, 341, 408, 474, 540);
+      yPositions6x6: array[1..6] of integer = (10, 76, 143, 209, 276, 342);
       // values for the changeOther 2nd arg to the change* functions
       CHANGE_OTHER: boolean = true;
       NO_CHANGE_OTHER: boolean = false;
@@ -85,6 +85,9 @@ begin
    else
    begin
 	   Top := yPositions6x6[row];
+      label4.Top := 35;
+      label5.Top := 35;
+      label6.Top := 35;
       label7.Visible := FALSE;
       label8.Visible := FALSE;
       label9.Visible := FALSE;
