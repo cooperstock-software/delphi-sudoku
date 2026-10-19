@@ -76,9 +76,9 @@ object SudokuBaseForm: TSudokuBaseForm
     OnClick = SolveButtonClick
   end
   object LoadButton: TButton
-    Left = 401
+    Left = 285
     Top = 628
-    Width = 95
+    Width = 92
     Height = 30
     Margins.Left = 4
     Margins.Top = 4
@@ -95,9 +95,9 @@ object SudokuBaseForm: TSudokuBaseForm
     OnClick = LoadButtonClick
   end
   object SaveButton: TButton
-    Left = 513
+    Left = 397
     Top = 628
-    Width = 95
+    Width = 92
     Height = 30
     Margins.Left = 4
     Margins.Top = 4
@@ -133,9 +133,9 @@ object SudokuBaseForm: TSudokuBaseForm
     OnClick = ClearButtonClick
   end
   object SwitchButton: TButton
-    Left = 401
+    Left = 285
     Top = 672
-    Width = 209
+    Width = 206
     Height = 30
     Margins.Left = 4
     Margins.Top = 4
@@ -169,5 +169,24 @@ object SudokuBaseForm: TSudokuBaseForm
     ParentFont = False
     TabOrder = 5
     OnClick = OptionsButtonClick
+  end
+  object HelpButton: TButton
+    Left = 512
+    Top = 627
+    Width = 94
+    Height = 31
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Caption = '&Help'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -17
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 7
+    OnClick = HelpButtonClick
   end
 end

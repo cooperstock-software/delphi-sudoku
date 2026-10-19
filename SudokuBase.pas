@@ -3,7 +3,8 @@ unit SudokuBase;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
+  Winapi.Windows, Winapi.Messages, Winapi.ShellApi,
+  System.SysUtils, System.Variants, System.Classes,
   System.Diagnostics, System.UITypes, System.IOUtils, System.StrUtils, Vcl.Graphics,
   Vcl.Controls, Vcl.StdCtrls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
   Cell, Globals, Backtrack, Options;
@@ -22,6 +23,7 @@ type
     ClearButton: TButton;
     SwitchButton: TButton;
     OptionsButton: TButton;
+    HelpButton: TButton;
       procedure FormCreate(Sender: TObject);
       procedure FormKeyPress(Sender: TObject; var Key: Char);
       procedure ManualPlayButtonClick(Sender: TObject);
@@ -32,6 +34,7 @@ type
     	procedure ClearButtonClick(Sender: TObject);
     procedure SwitchButtonClick(Sender: TObject);
     procedure OptionsButtonClick(Sender: TObject);
+    procedure HelpButtonClick(Sender: TObject);
   private
       { Private declarations }
       function IsPuzzleClear: boolean;
@@ -1046,6 +1049,23 @@ begin
 			mtConfirmation, [mbYes, mbNo], 0) <> mrYes then EXIT;
 
    ClearAll;
+end;
+
+// Show the PDF Help file
+procedure TSudokuBaseForm.HelpButtonClick(Sender: TObject);
+var
+   ret: integer;
+const
+   pdfFile = 'sudoku.pdf';
+begin
+   if NOT FileExists(pdfFile) then
+   begin
+   	ShowMessage('Cannot find Help file ' + pdfFile + '.');
+      EXIT;
+   end;
+	ret := ShellExecute(0,'open', PChar(pdfFile), nil, nil, SW_SHOWNORMAL);
+   if ret <= 32 then
+      ShowMessage(Format('Error # %d opening Help file %s.', [ret, pdfFile]));
 end;
 
 // Prepare for solving the puzzle by re-bubbling all results in squares across

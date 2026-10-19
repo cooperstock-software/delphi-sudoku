@@ -65,4 +65,10 @@ inherited Sudoku6x6Form: TSudoku6x6Form
     ExplicitLeft = 316
     ExplicitTop = 478
   end
+  inherited HelpButton: TButton
+    Left = 319
+    Top = 530
+    ExplicitLeft = 319
+    ExplicitTop = 530
+  end
 end
