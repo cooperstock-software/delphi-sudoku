@@ -45,7 +45,7 @@ type
       procedure FullSolve;
       procedure ClearAll;
       procedure LoadFile(pathName: string);
-      function SolveRowsColsBoxes(var stop, nonePossible: boolean): boolean;
+      function SolveRowsColsBoxes(var stop: boolean): boolean;
       function SolveSingletonSquares(var nonePossible: boolean): boolean;
       function MainSolveSteps(var done, stop, nonePossible: boolean): boolean;
   protected
@@ -232,11 +232,21 @@ var
    shifted: boolean;
    newRow, newCol: integer;
    c: Word;
+   ch: Char;
 begin
    c := msg.CharCode;
    shifted := GetKeyState(VK_SHIFT) < 0;
    newRow := clickedRow;
    newCol := ClickedCol;
+
+   // Delete: like backspace in the KeyPress handler, so call it!
+   if c = vkDelete then
+   begin
+   	ch := #8; // Backspace
+   	FormKeyPress(self, ch);
+      handled := TRUE; // tell VCL that we handled the key
+      EXIT;
+   end;
 
    // Tab: walk forward through the rows and columns, going from the end of one row
    //      to the start of the next, and from the end of the last row to the top.
@@ -387,6 +397,9 @@ begin
             ShowMessage('You have solved the puzzle!');
       end;
    end;
+
+   if key = #8 { backspace } then
+   	cell.SetResult('', not (isStarted or cell.areDigitsVisible));
 end;
 
 // Follow a bunch of steps to solve the puzzle.
@@ -519,10 +532,10 @@ begin
          EXIT;
       end;
 
-      if SolveRowsColsBoxes(stop, nonePossible) then
+      if SolveRowsColsBoxes(stop) then
          solvedSomething := TRUE;
       done := IsPuzzleSolved;
-      if done or stop or nonePossible then
+      if done or stop then
       begin
       	result := solvedSomething;
          EXIT;
@@ -674,10 +687,8 @@ end;
 
 // For all rows, all columns, and all boxes, look for an unsolved digit in that
 // row/col/box that only occurs once, and solve it.
-// If you hit a square with no digits possible, set abNonePossible to TRUE and return FALSE
-// Return whether any were solved.
 // Set stop to true if you are stepping, you give progress message, and they ask to stop.
-function TSudokuBaseForm.SolveRowsColsBoxes(var stop, nonePossible: boolean): boolean;
+function TSudokuBaseForm.SolveRowsColsBoxes(var stop: boolean): boolean;
 var
    solvedAny: boolean;
    firstIndex, i: integer;
@@ -865,6 +876,7 @@ begin
    end;
 
    try
+   	SaveDialog.DefaultExt := 'sud';
    	SaveDialog.Filter := 'Sudoku Files (*.sud)|*.sud';
 		SaveDialog.InitialDir := initDir;
 		SaveDialog.Options := [ofNoChangeDir, ofOverwritePrompt];
@@ -892,11 +904,13 @@ begin
 
    // write it out
    try
-    TFile.WriteAllText(pathName, s, TEncoding.ANSI);
-  except
-    on E: Exception do
-      ShowMessage(format('Unable to write to file %s.' + sLineBreak + 'Error: %s',
-        						 [pathName, E.Message]));
+   	TFile.WriteAllText(pathName, s, TEncoding.ANSI);
+   	// save for re-loads or re-saves, after successful load
+   	saveFile := pathName;
+	except
+  		on E: Exception do
+      	ShowMessage(format('Unable to write to file %s.' + sLineBreak + 'Error: %s',
+        						 	 [pathName, E.Message]));
   end;
 end;
 
@@ -925,6 +939,7 @@ begin
 		initDir := currentDir;
 
 	try
+   	OpenDialog.DefaultExt := 'sud';
 		OpenDialog.Filter := 'Sudoku Files (*.sud)|*.sud';
 		OpenDialog.InitialDir := initDir;
 		OpenDialog.Options := [ofNoChangeDir, ofFileMustExist];
