@@ -174,7 +174,7 @@ object Cell: TCell
   object Label9: TLabel
     Left = 46
     Top = 41
-    Width = 10
+    Width = 12
     Height = 18
     Anchors = []
     AutoSize = False
@@ -187,16 +187,13 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickSmallNumber
     OnDblClick = DblClickSmallNumber
-    ExplicitLeft = 38
-    ExplicitTop = 34
   end
   object Result: TLabel
     Left = 6
     Top = 2
-    Width = 52
+    Width = 50
     Height = 54
     Alignment = taCenter
-    Anchors = [akLeft, akTop, akRight, akBottom]
     AutoSize = False
     Caption = '1'
     Font.Charset = ANSI_CHARSET
@@ -207,7 +204,5 @@ object Cell: TCell
     ParentFont = False
     OnClick = ClickResult
     OnDblClick = DblClickResult
-    ExplicitWidth = 42
-    ExplicitHeight = 45
   end
 end
